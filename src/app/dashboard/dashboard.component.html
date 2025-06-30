@@ -1,0 +1,29 @@
+<main [ngStyle]="{'background-image': 'url(/assets/' + selectedCar.model + '.png)'}" class="bg-center bg-no-repeat">
+    <app-menu></app-menu>
+    <section class="flex flex-col justify-center align-center h-screen">
+        <h1 class="text-center">Dashboard FORD</h1>
+        <div class="flex justify-around">
+            <div>
+                <h2>Veiculo</h2>
+                <select [(ngModel)]="selectedCar" name="car">
+                    <option *ngFor="let car of cars" [ngValue]="car">{{ car.model }}</option>
+                </select>
+            </div>
+            <div>
+                <h2>Total de Vendas</h2>
+                <h1>1500</h1>
+                <p>Unid</p>
+            </div>
+            <div>
+                <h2>Conectados</h2>
+                <h1>500</h1>
+                <p>Unid</p>
+            </div>
+            <div>
+                <h2>Update Software</h2>
+                <h1>750</h1>
+                <p>Unid</p>
+            </div>
+        </div>
+    </section>
+</main>

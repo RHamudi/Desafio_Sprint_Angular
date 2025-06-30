@@ -1,21 +1,18 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { MenuComponent } from "../menu/menu.component";
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule],
+  imports: [CommonModule, MenuComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-  showModal = false;
+  @ViewChild(MenuComponent) menuComponent!: MenuComponent;
 
-  
-  toggleModal() {
-    this.showModal = true;
-  }
-
-  closeModal() {
-    this.showModal = false;
+  handleCloseModal() {
+    this.menuComponent.closeModal();
   }
 }
