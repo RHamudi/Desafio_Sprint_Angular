@@ -1,9 +1,9 @@
 <main class="bg-[url('/assets/ranger.png')] bg-center bg-no-repeat h-screen">
 <p *ngIf="!showModal" class="absolute font-black" (click)="toggleModal()">|||</p>
-<div class="absolute top-10">
+<div class="absolute ">
     <div *ngIf="showModal">
         <div class="flex flex-col items-center justify-center h-full">
-            <h1 class="text-2xl font-bold mb-4">Menu</h1>
+            <h1 class="text-2xl font-bold mb-4"><img class="h-10" src="assets/ford.png"></h1>
             <ul class="list-none">
                 <li class="mb-2"><a routerLink="/home" class="text-blue-500 hover:underline">Home</a></li>
                 <li class="mb-2"><a routerLink="/about" class="text-blue-500 hover:underline">Dashboard</a></li>
