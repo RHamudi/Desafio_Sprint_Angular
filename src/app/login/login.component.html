@@ -1,0 +1,27 @@
+<div class="flex items-center justify-center align-center h-screen">
+    <img class="h-[20vh]"  src="assets/ranger.png" alt="Logo"  />
+    <div class="flex flex-col h-screen">
+        <div>
+            <img class="h-10" src="assets/ford.png" alt="">
+        </div>
+        <div class="gap-4 flex flex-col items-center justify-center flex-1 text-center">
+            <h1 class="font-bold">Boas Vindas</h1>
+            <form class="flex flex-col">
+                <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" 
+                type="text" 
+                placeholder="Usuário" 
+                name="username" 
+                required 
+                [(ngModel)]="usuario"
+                />
+                <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" 
+                type="text" 
+                placeholder="Senha" 
+                name="password" 
+                [(ngModel)]="senha"
+                required />
+                <button (click)="onLogin()" type="submit">Enviar</button>
+            </form>
+        </div>
+    </div>
+</div>
