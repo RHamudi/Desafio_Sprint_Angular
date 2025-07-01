@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,14 +9,15 @@ import { Router } from '@angular/router';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-
-  usuario: string = '';
-  senha: string = '';
-
   constructor(private route: Router) { }
 
-  onLogin() {
-    this.route.navigate(['/home'])
-    console.log(this.usuario, this.senha);
+  onLogin(form: NgForm) {
+    // this.route.navigate(['/home'])
+    console.log("teste")
+    console.log(form.value);
+    const { username, password} = form.value;
+    if(username == "admin" && password == "123456"){
+      this.route.navigate(['/home'])
+    }
   }
 }

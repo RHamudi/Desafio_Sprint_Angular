@@ -6,21 +6,21 @@
         </div>
         <div class="gap-4 flex flex-col items-center justify-center flex-1 text-center">
             <h1 class="font-bold">Boas Vindas</h1>
-            <form class="flex flex-col">
+            <form class="flex flex-col" #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)">
                 <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" 
                 type="text" 
                 placeholder="Usuário" 
                 name="username" 
                 required 
-                [(ngModel)]="usuario"
+                ngModel
                 />
                 <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" 
-                type="text" 
+                type="password" 
                 placeholder="Senha" 
                 name="password" 
-                [(ngModel)]="senha"
+                ngModel
                 required />
-                <button (click)="onLogin()" type="submit">Enviar</button>
+                <button type="submit">Enviar</button>
             </form>
         </div>
     </div>
