@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -9,6 +9,9 @@ import { RouterLink } from '@angular/router';
   styleUrl: './menu.component.css'
 })
 export class MenuComponent {
+
+  constructor(private route: Router) {}
+
   showModal = false;
 
   toggleModal() {
@@ -17,5 +20,9 @@ export class MenuComponent {
 
   closeModal() {
     this.showModal = false;
+  }
+
+  logout() {
+    this.route.navigate(['']);
   }
 }
