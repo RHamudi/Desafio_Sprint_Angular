@@ -12,6 +12,12 @@ import { MenuComponent } from "../menu/menu.component";
 export class HomeComponent {
   @ViewChild(MenuComponent) menuComponent!: MenuComponent;
 
+  backgroundColor: boolean = false;
+
+  onModalStatusChange(status: boolean) {
+    this.backgroundColor = status;
+  }
+
   handleCloseModal() {
     this.menuComponent.closeModal();
   }

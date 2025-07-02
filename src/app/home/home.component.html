@@ -1,9 +1,10 @@
 <main class="bg-[url('/assets/ranger.png')] bg-center bg-no-repeat h-screen">
-<app-menu></app-menu>
+<div *ngIf="backgroundColor" (click)="handleCloseModal()" class="absolute inset-0 bg-black opacity-80 z-10"></div>
+<app-menu (modalStatusChange)="onModalStatusChange($event)" class="relative z-20"></app-menu>
  <section (click)="handleCloseModal()" class="flex items-center justify-center align-center h-screen">
-    <div class="bg-gray-300 h-60 w-96">
-        <h1>Sistema de dados FORD</h1>
-        <h2>Seja bem vindo(a)!</h2>
+    <div class="bg-gray-300 h-70 w-96 opacity-90 border-2 rounded-lg shadow-lg">
+        <h1 class="p-3 font-black border-b-2">Sistema de dados FORD</h1>
+        <h2 class="p-3 font-bold text-blue-800">Seja bem vindo(a)!</h2>
     </div>
  </section>
 </main>
