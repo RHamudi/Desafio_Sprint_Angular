@@ -1,6 +1,7 @@
 <main [ngStyle]="{'background-image': 'url(/assets/' + selectedCar.model + '.png)'}" class="bg-center bg-no-repeat">
-    <app-menu></app-menu>
-    <section class="flex flex-col justify-between gap-10 py-10 h-screen">
+    <div *ngIf="backgroundColor" (click)="handleCloseModal()" class="absolute inset-0 bg-black opacity-80 z-10"></div>
+    <app-menu (modalStatusChange)="onModalStatusChange($event)" class="relative z-20"></app-menu>
+    <section (click)="handleCloseModal()" class="flex flex-col justify-between gap-10 py-10 h-screen">
         <h1 class="text-center">Dashboard FORD</h1>
         <div class="flex justify-around">
             <div class="bg-gray-100">

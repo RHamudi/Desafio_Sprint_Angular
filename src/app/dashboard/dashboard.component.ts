@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { MenuComponent } from "../menu/menu.component";
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -11,6 +11,18 @@ import { CommonModule } from '@angular/common';
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent {
+  @ViewChild(MenuComponent) menuComponent!: MenuComponent;
+
+  backgroundColor: boolean = false;
+
+  onModalStatusChange(status: boolean) {
+    this.backgroundColor = status;
+  }
+  
+  handleCloseModal() {
+    this.menuComponent.closeModal();
+  }
+
   cars = [
     {model: "ranger"},
     {model: "mustang"},
