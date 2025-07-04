@@ -1,7 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { MenuComponent } from "../menu/menu.component";
 import { FormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -24,17 +23,22 @@ export class DashboardComponent {
   }
 
   cars = [
-    {model: "ranger"},
-    {model: "mustang"},
-    {model: "territory"},
-    {model: "broncoSport"}
+    {model: "Ranger", totalVendas: 6700, conectados: 300, update: 600},
+    {model: "Mustang", totalVendas: 2000, conectados: 345, update: 600},
+    {model: "Territory", totalVendas: 8000, conectados: 700, update: 600},
+    {model: "Bronco Sport", totalVendas: 3500, conectados: 567, update: 600}
   ]
 
   selectedCar = this.cars[0];
 
   bgImage = "";
 
-  togleBg(imageName: string) {
-    this.bgImage = imageName;
+  get backgroundImage(): { [key: string]: string } {
+    const imageName = this.selectedCar.model.toLocaleLowerCase().replace(" ", "");;
+    console.log(imageName)
+    return {
+      'background-image': `url(/assets/${imageName}.png)`
+    };
   }
+  
 }
