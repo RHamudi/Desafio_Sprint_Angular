@@ -1,13 +1,14 @@
-<div class="flex items-center justify-center align-center h-screen">
+<div class="flex items-center justify-around align-center h-screen">
     <img class="h-[20vh]"  src="assets/ranger.png" alt="Logo"  />
     <div class="flex flex-col h-screen">
-        <div>
-            <img class="h-10" src="assets/ford.png" alt="">
+        <div class="flex items-center justify-center">
+            <img class="h-20 mt-3" src="assets/ford.png" alt="">
         </div>
-        <div class="gap-4 flex flex-col items-center justify-center flex-1 text-center">
+        <div class="gap-4 flex flex-col items-center justify-center w-70 flex-1 text-center">
             <h1 class="font-bold">Boas Vindas</h1>
-            <form class="flex flex-col" #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)">
-                <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" 
+            <form class="flex flex-col w-60 gap-6" #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)">
+                <input 
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5" 
                 type="text" 
                 placeholder="Usuário" 
                 name="username" 
@@ -20,7 +21,7 @@
                 name="password" 
                 ngModel
                 required />
-                <button type="submit">Enviar</button>
+                <button class="bg-gray-500 p-2 rounded-lg text-white" type="submit">Enviar</button>
             </form>
         </div>
     </div>

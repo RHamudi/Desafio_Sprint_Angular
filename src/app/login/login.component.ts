@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
+import { Usuario } from './usuario';
 
 @Component({
   selector: 'app-login',
@@ -9,15 +11,14 @@ import { Router } from '@angular/router';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  constructor(private route: Router) { }
+  constructor(private route: Router, private authService: AuthService) { }
 
   onLogin(form: NgForm) {
-    // this.route.navigate(['/home'])
-    console.log("teste")
-    console.log(form.value);
-    const { username, password} = form.value;
-    if(username == "admin" && password == "123456"){
-      this.route.navigate(['/home'])
+    var user: Usuario = {
+      name: form.value.username,
+      password: form.value.password
     }
+    console.log(user)
+    return this.authService.login(user);
   }
 }
