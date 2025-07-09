@@ -35,7 +35,6 @@ export class DashboardComponent {
 
   get backgroundImage(): { [key: string]: string } {
     const imageName = this.selectedCar.model.toLocaleLowerCase().replace(" ", "");;
-    console.log(imageName)
     return {
       'background-image': `url(/assets/${imageName}.png)`
     };

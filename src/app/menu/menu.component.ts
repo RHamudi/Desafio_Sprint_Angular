@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { AuthService } from '../services/auth.service';
+import { LoginComponent } from '../login/login.component';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-menu',
@@ -12,7 +13,7 @@ import { AuthService } from '../services/auth.service';
 export class MenuComponent {
    activeRoute: string;
 
-  constructor(private route: Router, private activatedRoute: ActivatedRoute, private authService: AuthService) {
+  constructor(private route: Router, private activatedRoute: ActivatedRoute, private loginServices: LoginService) {
     this.activeRoute = this.activatedRoute.snapshot.url.join('/');
   }
 
@@ -31,6 +32,6 @@ export class MenuComponent {
   }
 
   logout() {
-    this.authService.logout();
+    this.loginServices.logout();
   }
 }

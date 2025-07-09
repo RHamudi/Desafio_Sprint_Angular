@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../services/auth.service';
 import { Usuario } from './usuario';
+import { RequestsService } from '../services/requests.service';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -11,14 +12,13 @@ import { Usuario } from './usuario';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  constructor(private route: Router, private authService: AuthService) { }
+  constructor(private loginService: LoginService) { }
 
-  onLogin(form: NgForm) {
+  submitForm(form: NgForm) {
     var user: Usuario = {
-      name: form.value.username,
-      password: form.value.password
+      nome: form.value.username,
+      senha: form.value.password
     }
-    console.log(user)
-    return this.authService.login(user);
+    this.loginService.onLogin(user);
   }
 }
