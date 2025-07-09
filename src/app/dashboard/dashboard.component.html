@@ -2,7 +2,7 @@
     <div *ngIf="backgroundColor" (click)="handleCloseModal()" class="absolute inset-0 bg-black opacity-80 z-10"></div>
     <app-menu (modalStatusChange)="onModalStatusChange($event)" class="relative z-20"></app-menu>
     <section (click)="handleCloseModal()" class="flex flex-col justify-between gap-10 py-10 h-screen">
-        <h1 class="text-center">Dashboard FORD</h1>
+        <h1 class="text-center font-black text-3xl text-blue-500">Dashboard FORD</h1>
         <div class="flex justify-around">
             <div class="bg-gray-100 h-30 w-44 font-black rounded">
             <h2 class="pl-4 py-2">Veiculo</h2>
@@ -27,25 +27,25 @@
             </div>
         </div>
         <div>
-            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                <thead class="bg-blue-100">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+                <thead class="text-xs text-white uppercase bg-blue-900">
                     <tr>
-                        <th>Codigo - Vin</th>
-                        <th>Odômetro</th>
-                        <th>Nivel de Combustivel</th>
-                        <th>Status</th>
-                        <th>Lat.</th>
-                        <th>Long</th>
+                        <th scope="col" class="px-6 py-3">Codigo - Vin</th>
+                        <th scope="col" class="px-6 py-3">Odômetro</th>
+                        <th scope="col" class="px-6 py-3">Nivel de Combustivel</th>
+                        <th scope="col" class="px-6 py-3">Status</th>
+                        <th scope="col" class="px-6 py-3">Lat.</th>
+                        <th scope="col" class="px-6 py-3">Long</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="bg-gray-200">
                     <tr>
-                        <td><p>askdaskdaskd</p></td>
-                        <td><p>40000 km</p></td>
-                        <td><p>90%</p></td>
-                        <td><p>on</p></td>
-                        <td><p>12.345678</p></td>
-                        <td><p>98.765432</p></td>
+                        <td class="px-6 py-3"><p>askdaskdaskd</p></td>
+                        <td class="px-6 py-3"><p>40000 km</p></td>
+                        <td class="px-6 py-3"><p>90%</p></td>
+                        <td class="px-6 py-3"><p>on</p></td>
+                        <td class="px-6 py-3"><p>12.345678</p></td>
+                        <td class="px-6 py-3"><p>98.765432</p></td>
                     </tr>
                 </tbody>
             </table>
