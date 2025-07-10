@@ -1,4 +1,4 @@
-<main [ngStyle]="backgroundImage" class="bg-center bg-no-repeat">
+<main *ngIf="selectedCar" [ngStyle]="{ 'background-image': 'url(' + selectedCar.img + ')' }" class="bg-center bg-no-repeat">
     <div *ngIf="backgroundColor" (click)="handleCloseModal()" class="absolute inset-0 bg-black opacity-80 z-10"></div>
     <app-menu (modalStatusChange)="onModalStatusChange($event)" class="relative z-20"></app-menu>
     <section (click)="handleCloseModal()" class="flex flex-col justify-between gap-10 py-10 h-screen">
@@ -12,17 +12,17 @@
             </div>
             <div class="bg-gray-100 h-30 w-44 font-black rounded">
                 <h2 class="pl-4 py-2">Total de Vendas</h2>
-                <h1 class="pl-4">{{selectedCar.totalVendas}}</h1>
+                <h1 class="pl-4">{{selectedCar.volumetotal}}</h1>
                 <p class="pl-4">Unid</p>
             </div>
             <div class="bg-gray-100 h-30 w-44 font-black rounded">
                 <h2 class="pl-4 py-2">Conectados</h2>
-                <h1 class="pl-4">{{selectedCar.conectados}}</h1>
+                <h1 class="pl-4">{{selectedCar.connected}}</h1>
                 <p class="pl-4">Unid</p>
             </div>
             <div class="bg-gray-100 h-30 w-44 font-black rounded">
                 <h2 class="pl-4 py-2">Update Software</h2>
-                <h1 class="pl-4">{{selectedCar.update}}</h1>
+                <h1 class="pl-4">{{selectedCar.softwareUpdates}}</h1>
                 <p class="pl-4">Unid</p>
             </div>
         </div>
