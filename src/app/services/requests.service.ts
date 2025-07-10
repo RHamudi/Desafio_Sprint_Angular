@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Usuario } from '../login/usuario';
 import { Observable } from 'rxjs';
-import {  VehicleData, VehicleList, VehicleListResponse } from '../dashboard/vehicle';
+import {  VehicleData, VehicleListResponse } from '../dashboard/vehicle';
 
 @Injectable({
   providedIn: 'root'
@@ -24,4 +24,6 @@ export class RequestsService {
   vehicleData(vin: string): Observable<VehicleData> {
     return this.http.post<VehicleData>(`${this.apiUrl}VehicleData`, {vin: vin});
   }
+
+  
 }

@@ -3,7 +3,7 @@ import { MenuComponent } from "../menu/menu.component";
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RequestsService } from '../services/requests.service';
-import { VehicleList } from './vehicle';
+import { VehicleData, VehicleList } from './vehicle';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,7 +13,11 @@ import { VehicleList } from './vehicle';
 })
 export class DashboardComponent {
   carList: VehicleList[] = [];
+  vehicleData: VehicleData[] = [];
   selectedCar: VehicleList | null = null;
+  vinData!: VehicleData;
+
+  listVin = ["2FRHDUYS2Y63NHD22454", "2RFAASDY54E4HDU34874", "2FRHDUYS2Y63NHD22455", "2RFAASDY54E4HDU34875", "2FRHDUYS2Y63NHD22654"]
 
   constructor(private requests: RequestsService) { }
 
@@ -21,7 +25,8 @@ export class DashboardComponent {
     this.requests.vehicleList().subscribe({
       next: (data) => {
         this.carList = data.vehicles;
-        this.selectedCar = this.carList[0];   // Set the first car as selected by default
+        this.selectedCar = this.carList[0];
+        this.selectVinData();
       }
     });
   }
@@ -38,14 +43,14 @@ export class DashboardComponent {
     this.menuComponent.closeModal();
   }
 
-  cars = [
-    {model: "Ranger", totalVendas: 6700, conectados: 300, update: 600},
-    {model: "Mustang", totalVendas: 2000, conectados: 345, update: 600},
-    {model: "Territory", totalVendas: 8000, conectados: 700, update: 600},
-    {model: "Bronco Sport", totalVendas: 3500, conectados: 567, update: 600}
-  ]
-
-  
+  selectVinData(){
+    if(this.selectedCar)
+    this.requests.vehicleData(this.listVin[this.selectedCar.id - 1]).subscribe({
+      next: (data) => {
+        this.vinData = data;
+      }
+    })
+  }
 
   bgImage = "";
 

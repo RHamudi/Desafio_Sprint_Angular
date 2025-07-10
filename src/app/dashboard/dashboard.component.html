@@ -6,8 +6,8 @@
         <div class="flex justify-around">
             <div class="bg-gray-100 h-30 w-44 font-black rounded">
             <h2 class="pl-4 py-2">Veiculo</h2>
-                <select class="pl-4" [(ngModel)]="selectedCar" name="car">
-                    <option *ngFor="let car of cars" [ngValue]="car">{{ car.model }}</option>
+                <select class="pl-4" [(ngModel)]="selectedCar" name="car" (change)="selectVinData()">
+                    <option *ngFor="let car of carList" [ngValue]="car">{{ car.vehicle }}</option>
                 </select>
             </div>
             <div class="bg-gray-100 h-30 w-44 font-black rounded">
@@ -40,15 +40,16 @@
                 </thead>
                 <tbody class="bg-gray-200">
                     <tr>
-                        <td class="px-6 py-3"><p>askdaskdaskd</p></td>
-                        <td class="px-6 py-3"><p>40000 km</p></td>
-                        <td class="px-6 py-3"><p>90%</p></td>
-                        <td class="px-6 py-3"><p>on</p></td>
-                        <td class="px-6 py-3"><p>12.345678</p></td>
-                        <td class="px-6 py-3"><p>98.765432</p></td>
+                        <td class="px-6 py-3"><p>{{listVin[vinData.id]}}</p></td>
+                        <td class="px-6 py-3"><p>{{vinData.odometro}}</p></td>
+                        <td class="px-6 py-3"><p>{{vinData.nivelCombustivel}}</p></td>
+                        <td class="px-6 py-3"><p>{{vinData.status}}</p></td>
+                        <td class="px-6 py-3"><p>{{vinData.lat}}</p></td>
+                        <td class="px-6 py-3"><p>{{vinData.long}}</p></td>
                     </tr>
                 </tbody>
             </table>
+            <div class="bg-blue-900 w-full"></div>
         </div>
     </section>
 </main>

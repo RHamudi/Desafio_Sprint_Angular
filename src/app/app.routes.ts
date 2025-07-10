@@ -3,11 +3,13 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { loginGuard } from './guards/login.guard';
+import { redirectAutoLoginGuard } from './guards/redirect-auto-login.guard';
 
 export const routes: Routes = [
     {
         path: '',
-        component: LoginComponent
+        component: LoginComponent,
+        canActivate: [redirectAutoLoginGuard]
     },
     {
         path: 'home',
