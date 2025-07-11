@@ -1,35 +1,43 @@
 <main *ngIf="selectedCar" [ngStyle]="{ 'background-image': 'url(' + selectedCar.img + ')' }" class="bg-center bg-no-repeat">
     <div *ngIf="backgroundColor" (click)="handleCloseModal()" class="absolute inset-0 bg-black opacity-80 z-10"></div>
     <app-menu (modalStatusChange)="onModalStatusChange($event)" class="relative z-20"></app-menu>
-    <section (click)="handleCloseModal()" class="flex flex-col justify-between gap-10 py-10 h-screen">
-        <h1 class="text-center font-black text-3xl text-blue-500">Dashboard FORD</h1>
+    <section (click)="handleCloseModal()" class="flex flex-col justify-between gap-10 h-screen">
+        <h1 class="text-center font-black text-3xl text-blue-500 mt-10">Dashboard FORD</h1>
         <div class="flex justify-around">
-            <div class="bg-gray-100 h-30 w-44 font-black rounded">
-            <h2 class="pl-4 py-2">Veiculo</h2>
-                <select class="pl-4" [(ngModel)]="selectedCar" name="car" (change)="selectVinData()">
+            <div class="bg-gray-100 h-40 w-60 font-bold rounded border-2 gap-5 flex flex-col">
+            <h2 class="pl-4 py-2 bg-gray-300">Veiculo</h2>
+                <select class="border-1 mx-2" [(ngModel)]="selectedCar" name="car" (change)="selectVinData()">
                     <option *ngFor="let car of carList" [ngValue]="car">{{ car.vehicle }}</option>
                 </select>
             </div>
-            <div class="bg-gray-100 h-30 w-44 font-black rounded">
-                <h2 class="pl-4 py-2">Total de Vendas</h2>
-                <h1 class="pl-4">{{selectedCar.volumetotal}}</h1>
-                <p class="pl-4">Unid</p>
+            <div class="bg-gray-100 h-40 w-60 rounded border-2">
+                <h2 class="pl-4 py-2 bg-gray-300 font-bold">Total de Vendas</h2>
+                <div class="pt-3">
+                    <h1 class="pl-4 font-bold text-xl text-blue-500">{{selectedCar.volumetotal}}</h1>
+                    <p class="pl-4 text-sm">Unid.</p>
+                </div>
+                
             </div>
-            <div class="bg-gray-100 h-30 w-44 font-black rounded">
-                <h2 class="pl-4 py-2">Conectados</h2>
-                <h1 class="pl-4">{{selectedCar.connected}}</h1>
-                <p class="pl-4">Unid</p>
+            <div class="bg-gray-100 h-40 w-60 rounded border-2">
+                <h2 class="pl-4 py-2 bg-gray-300  font-bold">Conectados</h2>
+                <div class="pt-3">
+                    <h1 class="pl-4 font-bold text-xl text-blue-500">{{selectedCar.connected}}</h1>
+                    <p class="pl-4 text-sm">Unid.</p>
+                </div>
+                
             </div>
-            <div class="bg-gray-100 h-30 w-44 font-black rounded">
-                <h2 class="pl-4 py-2">Update Software</h2>
-                <h1 class="pl-4">{{selectedCar.softwareUpdates}}</h1>
-                <p class="pl-4">Unid</p>
+            <div class="bg-gray-100 h-40 w-60 rounded border-2">
+                <h2 class="pl-4 py-2 bg-gray-300 font-bold">Update Software</h2>
+                <div class="pt-3">
+                    <h1 class="pl-4 font-bold text-xl text-blue-500">{{selectedCar.softwareUpdates}}</h1>
+                    <p class="pl-4 text-sm">Unid.</p>
+                </div>
             </div>
         </div>
         <div>
             <table class="w-full text-sm text-left rtl:text-right text-gray-500">
                 <thead class="text-xs text-white uppercase bg-blue-900">
-                    <tr>
+                    <tr class="text-base">
                         <th scope="col" class="px-6 py-3">Codigo - Vin</th>
                         <th scope="col" class="px-6 py-3">Odômetro</th>
                         <th scope="col" class="px-6 py-3">Nivel de Combustivel</th>
@@ -49,7 +57,7 @@
                     </tr>
                 </tbody>
             </table>
-            <div class="bg-blue-900 w-full"></div>
+            <div class="bg-blue-900 w-full h-4"></div>
         </div>
     </section>
 </main>

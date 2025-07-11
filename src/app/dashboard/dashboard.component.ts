@@ -53,12 +53,4 @@ export class DashboardComponent {
   }
 
   bgImage = "";
-
-  // get backgroundImage(): { [key: string]: string } {
-  //   const imageName = this.selectedCar.img.toLocaleLowerCase().replace(" ", "");;
-  //   return {
-  //     'background-image': `url(/assets/${imageName}.png)`
-  //   };
-  // }
-  
 }
