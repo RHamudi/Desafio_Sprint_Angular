@@ -1,12 +1,14 @@
-<div class="flex items-center justify-around align-center h-screen">
-    <img class="h-[20vh]"  src="assets/ranger.png" alt="Logo"  />
-    <div class="flex flex-col h-screen">
+<div class="flex items-center align-center h-screen">
+    <div class="w-1/2">
+        <img class=""  src="assets/ranger.png" alt="Logo"  />
+    </div>
+    <div class="flex flex-col w-1/2 h-screen bg-gray-100">
         <div class="flex items-center justify-center">
             <img class="h-20 mt-3" src="assets/ford.png" alt="">
         </div>
-        <div class="gap-4 flex flex-col items-center justify-center w-70 flex-1 text-center">
+        <div class="gap-4 flex flex-col items-center justify-center flex-1 text-center">
             <h1 class="font-bold">Boas Vindas</h1>
-            <form class="flex flex-col w-60 gap-6" #loginForm="ngForm" (ngSubmit)="submitForm(loginForm)">
+            <form class="flex flex-col w-100% w-60 gap-6" #loginForm="ngForm" (ngSubmit)="submitForm(loginForm)">
                 <input 
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5" 
                 type="text" 
@@ -21,7 +23,14 @@
                 name="password" 
                 ngModel
                 required />
-                <button class="bg-gray-500 p-2 rounded-lg text-white" type="submit">Enviar</button>
+                <div class="w-full">
+                    <label class="text-right block">
+                        Login Automatico
+                        <input type="checkbox" name="" id="">
+                    </label>
+                    <button class="bg-gray-500 p-2 w-full rounded-lg text-white" type="submit">Enviar</button>
+                </div>
+                
             </form>
         </div>
     </div>

@@ -10,6 +10,7 @@ import {  VehicleData, VehicleListResponse } from '../dashboard/vehicle';
 export class RequestsService {
   private apiUrl: string = "http://localhost:3001/";
   private http = inject(HttpClient);
+  autoLogin: boolean = false;
 
   constructor() { }
 
