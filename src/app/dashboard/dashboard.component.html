@@ -6,7 +6,7 @@
         <div class="flex justify-around">
             <div class="bg-gray-100 h-40 w-60 font-bold rounded border-2 gap-5 flex flex-col">
             <h2 class="pl-4 py-2 bg-gray-300">Veiculo</h2>
-                <select class="border-1 mx-2" [(ngModel)]="selectedCar" name="car" (change)="selectVinData()">
+                <select class="border-1 mx-2" [(ngModel)]="selectedCar" name="car">
                     <option *ngFor="let car of carList" [ngValue]="car">{{ car.vehicle }}</option>
                 </select>
             </div>
@@ -48,7 +48,7 @@
                 </thead>
                 <tbody class="bg-gray-200">
                     <tr class="text-black">
-                        <td class="px-6 py-3"><p>{{listVin[vinData.id]}}</p></td>
+                        <td class="px-6 py-3"><p><input class="border-1" type="text" [(ngModel)]="codigoVin" (input)="onChangeVerifyVin()"></p></td>
                         <td class="px-6 py-3"><p>{{vinData.odometro}}</p></td>
                         <td class="px-6 py-3"><p>{{vinData.nivelCombustivel}}</p></td>
                         <td class="px-6 py-3"><p>{{vinData.status}}</p></td>

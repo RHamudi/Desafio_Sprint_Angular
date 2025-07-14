@@ -28,7 +28,7 @@ export class LoginService {
       this.route.navigate(['home'])
     },
       error: (err: any) => {
-        console.log(err);
+        alert("Credenciais incorretas, tente novamente")
       }
     })
   }

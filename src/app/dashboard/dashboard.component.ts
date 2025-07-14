@@ -15,9 +15,16 @@ export class DashboardComponent {
   carList: VehicleList[] = [];
   vehicleData: VehicleData[] = [];
   selectedCar: VehicleList | null = null;
-  vinData!: VehicleData;
+  vinData: VehicleData = {
+    id: 0,
+    lat: 0,
+    long: 0,
+    nivelCombustivel: 0,
+    odometro: 0,
+    status: ""
+  }
 
-  listVin = ["2FRHDUYS2Y63NHD22454", "2RFAASDY54E4HDU34874", "2FRHDUYS2Y63NHD22455", "2RFAASDY54E4HDU34875", "2FRHDUYS2Y63NHD22654"]
+  codigoVin = "";
 
   constructor(private requests: RequestsService) { }
 
@@ -26,7 +33,6 @@ export class DashboardComponent {
       next: (data) => {
         this.carList = data.vehicles;
         this.selectedCar = this.carList[0];
-        this.selectVinData();
       }
     });
   }
@@ -35,21 +41,20 @@ export class DashboardComponent {
 
   backgroundColor: boolean = false;
 
+  onChangeVerifyVin(){
+    this.requests.vehicleData(this.codigoVin).subscribe({
+      next: (data)=> {
+        this.vinData = data;
+      }
+    });
+  }
+
   onModalStatusChange(status: boolean) {
     this.backgroundColor = status;
   }
   
   handleCloseModal() {
     this.menuComponent.closeModal();
-  }
-
-  selectVinData(){
-    if(this.selectedCar)
-    this.requests.vehicleData(this.listVin[this.selectedCar.id - 1]).subscribe({
-      next: (data) => {
-        this.vinData = data;
-      }
-    })
   }
 
   bgImage = "";
