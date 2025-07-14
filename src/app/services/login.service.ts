@@ -13,6 +13,14 @@ export class LoginService {
 
   constructor() { }
 
+  changeAutoLogin(event: boolean){
+    if(event){
+      localStorage.setItem("autoLogin", "true")
+    } else {
+      localStorage.setItem("autoLogin", "false")
+    }
+  }
+
   onLogin(user: Usuario) {
     this.requests.verifyUser(user).subscribe({
       next: (res: Usuario) => {

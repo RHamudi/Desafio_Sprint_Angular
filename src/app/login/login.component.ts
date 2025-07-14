@@ -10,9 +10,13 @@ import { LoginService } from '../services/login.service';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-
-
   constructor(private loginService: LoginService) { }
+
+  onCheckboxChange(event: Event) {
+    const checked = (event.target as HTMLInputElement).checked;
+    this.loginService.changeAutoLogin(checked);
+    console.log(localStorage.getItem("autoLogin"));
+  }
 
   submitForm(form: NgForm) {
     var user: Usuario = {

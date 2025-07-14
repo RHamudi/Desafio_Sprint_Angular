@@ -24,7 +24,5 @@ export class RequestsService {
 
   vehicleData(vin: string): Observable<VehicleData> {
     return this.http.post<VehicleData>(`${this.apiUrl}VehicleData`, {vin: vin});
-  }
-
-  
+  }  
 }

@@ -6,7 +6,7 @@ export const redirectAutoLoginGuard: CanActivateFn = (route, state) => {
   const authService = inject(LoginService);
   const router = inject(Router);
 
-  if(authService.isLoggedIn()){
+  if(localStorage.getItem("autoLogin") == "true" && authService.isLoggedIn()){
     router.navigate(['home'])
     return false
   }
