@@ -1,10 +1,10 @@
 export interface VehicleData {
-    id: number;
-    odometro: number;
-    nivelCombustivel: number;
-    status: string;
-    lat: number;
-    long: number;
+    id: number | string;
+    odometro: number | string;
+    nivelCombustivel: number | string;
+    status: string | null;
+    lat: number | string;
+    long: number | string;
 }
 
 export interface VehicleList {

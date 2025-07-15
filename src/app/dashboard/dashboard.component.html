@@ -1,4 +1,4 @@
-<main *ngIf="selectedCar" [ngStyle]="{ 'background-image': 'url(' + selectedCar.img + ')' }" class="bg-center bg-no-repeat">
+<main *ngIf="selectedCar" class="bg-center bg-no-repeat">
     <div *ngIf="backgroundColor" (click)="handleCloseModal()" class="absolute inset-0 bg-black opacity-80 z-10"></div>
     <app-menu (modalStatusChange)="onModalStatusChange($event)" class="relative z-20"></app-menu>
     <section (click)="handleCloseModal()" class="flex flex-col justify-between gap-10 h-screen">
@@ -34,6 +34,7 @@
                 </div>
             </div>
         </div>
+        <img [src]="selectedCar.img" alt="Car Image" class="w-1/2 mx-auto ">
         <div>
             <table class="w-full text-sm text-left rtl:text-right text-gray-500">
                 <thead class="text-xs text-white uppercase bg-blue-900">

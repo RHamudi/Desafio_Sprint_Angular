@@ -16,11 +16,11 @@ export class DashboardComponent {
   vehicleData: VehicleData[] = [];
   selectedCar: VehicleList | null = null;
   vinData: VehicleData = {
-    id: 0,
-    lat: 0,
-    long: 0,
-    nivelCombustivel: 0,
-    odometro: 0,
+    id: '',
+    lat: '',
+    long: '',
+    nivelCombustivel: '',
+    odometro: '',
     status: ""
   }
 
